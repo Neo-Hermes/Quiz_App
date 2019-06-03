@@ -9,6 +9,10 @@ const mainModule = (function(){
             console.log("render quiz page");
             quizModule.render(state);
         }
+
+        if(state.currentPage === "quizAnswer"){
+            console.log("render quiz page");
+            answerModule.render(state);
     }
 
 
@@ -16,6 +20,7 @@ const mainModule = (function(){
         console.log("Hello World");
         openingModule.initialize(render);
         quizModule.initialize(render);
+        answerModule.initialize(render);
         render(STORE)
     }
 
@@ -24,6 +29,6 @@ const mainModule = (function(){
     return {
         run
     };
-})()
+}})()
 
 $(mainModule.run)

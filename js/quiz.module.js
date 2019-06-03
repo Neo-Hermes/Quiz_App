@@ -2,14 +2,14 @@ const quizModule = (function(){
 
     let _render;
 
-    function handleNextQuestion(state){
-        $("#nextQuestion").click(function(e){
-            const nextQuestion = state.currentQuestion += 1;
+    function handleAnswer(state){
+        $("#nextAnswer").click(function(e){
+            const currentAnswer = state.questions.find(question => question.correctAnswer);
             const newState = {
                 ...state,
-                currentQuestion: nextQuestion
+                currentQuestion: currentAnswer
             }
-            console.log(nextQuestion);
+            console.log(currentAnswer);
             _render(newState)
         })
     };
@@ -31,7 +31,7 @@ const quizModule = (function(){
         const choices = renderChoices(currentQuestion.choices);
         console.log(state)
         const page = `
-            <button id="nextQuestion">Next</button>
+            <button id="currentAnswer">Next</button>
             <div>
                 <form class ="question" action ="/some-server-endpoint" method ="post">
                 <legend>Question</legend>
@@ -40,7 +40,7 @@ const quizModule = (function(){
         `;
         // cost wrapped = commonModule.mainLayout(page);
         $("#root").html(page);
-        handleNextQuestion(state);
+        handleAnswer(state);
         
     }
 
