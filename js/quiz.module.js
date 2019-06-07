@@ -4,7 +4,7 @@ const quizModule = (function(){
 
     function handleAnswer(state){
         $("#nextAnswer").click(function(e){
-            const currentAnswer = state.questions.find(question => question.correctAnswer);
+            const currentAnswer = state.currentQuestion.find(question => question.correctAnswer);
             const newState = {
                 ...state,
                 currentQuestion: currentAnswer

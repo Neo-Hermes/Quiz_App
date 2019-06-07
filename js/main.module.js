@@ -14,6 +14,7 @@ const mainModule = (function(){
             console.log("render quiz page");
             answerModule.render(state);
     }
+}
 
 
     function run(){
@@ -29,6 +30,6 @@ const mainModule = (function(){
     return {
         run
     };
-}})()
+})()
 
 $(mainModule.run)
